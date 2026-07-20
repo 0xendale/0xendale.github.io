@@ -54,7 +54,7 @@
       inset: 0;
       pointer-events: none;
       z-index: 60;
-      opacity: 0.06;
+      opacity: 0.035;
       mix-blend-mode: overlay;
       background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
     }
@@ -79,6 +79,14 @@
       backdrop-filter: blur(18px) saturate(160%);
       border: 1px solid rgba(197, 160, 89, 0.28);
     }
+    .glass, .bg-onyx.lab-card {
+      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+    .glass:hover {
+      transform: translateY(-3px);
+      border-color: rgba(197, 160, 89, 0.4);
+    }
+    .lab-card:hover { box-shadow: inset 0 0 0 1px rgba(197,160,89,0.35); }
 
     /* Gold leaf gradient text */
     .gold-leaf {
@@ -253,7 +261,7 @@
           <div class="text-[10px] tracking-[0.22em] text-bone/50 uppercase">Senior&nbsp;Protocol&nbsp;Engineer</div>
         </div>
       </a>
-      <nav class="hidden md:flex items-center gap-8 text-[11px] tracking-[0.28em] uppercase text-bone/65">
+      <nav class="hidden md:flex items-center gap-8 text-[11px] tracking-[0.28em] uppercase text-bone/75">
         <a href="#alchemy"       class="hover:text-gold transition">I · Alchemy</a>
         <a href="#transmutation" class="hover:text-gold transition">II · Logs</a>
         <a href="#archive"       class="hover:text-gold transition">III · Blueprint</a>
@@ -293,7 +301,7 @@
           <span class="gold-leaf italic font-light">resilient multichain infrastructure.</span>
         </h1>
 
-        <div class="mt-6 max-w-md text-bone/65 text-[13px] leading-relaxed">
+        <div class="mt-6 max-w-md text-bone/75 text-[13.5px] leading-relaxed">
           Core protocol upgrades, liquidity infrastructure, and cross-chain interoperability —
           built across EVM, Solana, TON, Aptos and Move.
         </div>
@@ -320,7 +328,7 @@
           </div>
           <div class="bg-onyx p-4">
             <div class="text-bone/40 tracking-[0.22em] uppercase text-[10px]">Recognition</div>
-            <div class="mt-1 text-gold">Ninety Eight · 24</div>
+            <div class="mt-1 text-gold">Best Performance '24</div>
           </div>
         </div>
       </div>
@@ -495,7 +503,7 @@
               <div class="text-[10px] tracking-[0.28em] uppercase text-bone/40">Protocol · Engineer</div>
             </div>
             <h3 class="display text-3xl lg:text-4xl gold-leaf mb-4">Transmute, don't translate.</h3>
-            <p class="text-bone/70 text-[13px] leading-relaxed max-w-xl">
+            <p class="text-bone/70 text-[13.5px] leading-relaxed max-w-xl">
               I am Endale. I build protocol-grade infrastructure that survives adversaries,
               not surface-grade glue that survives demos. The work is to turn complex logic
               into systems that hold their shape across chains, runtimes, and load.
@@ -508,7 +516,7 @@
               <div class="text-[10px] tracking-[0.28em] uppercase text-bone/40">Infrastructure · SDKs</div>
             </div>
             <h3 class="display text-3xl lg:text-4xl gold-leaf mb-4">Core, liquidity, and the bridges between.</h3>
-            <p class="text-bone/70 text-[13px] leading-relaxed max-w-xl mb-6">
+            <p class="text-bone/70 text-[13.5px] leading-relaxed max-w-xl mb-6">
               My focus sits at three layers: core protocol upgrades, liquidity infrastructure,
               and cross-chain interoperability — plus the developer-centric SDKs that make
               all three usable by the people who ship on top.
@@ -526,7 +534,7 @@
               <div class="text-[10px] tracking-[0.28em] uppercase text-bone/40">Five · Ecosystems</div>
             </div>
             <h3 class="display text-3xl lg:text-4xl gold-leaf mb-4">One scribe, many runtimes.</h3>
-            <p class="text-bone/70 text-[13px] leading-relaxed max-w-xl mb-6">
+            <p class="text-bone/70 text-[13.5px] leading-relaxed max-w-xl mb-6">
               EVM at the foundation. Solana for high-throughput liquidity. TON for its
               actor-model asynchrony. Aptos and the Move world for resource-typed safety.
               Each runtime gets a working dialect — not a port.
@@ -567,12 +575,36 @@
           <div class="eyebrow mb-5"><span class="num">II.</span>Transmutation Logs · Paradigms</div>
           <h2 class="display text-[clamp(2.2rem,5vw,3.6rem)] gold-leaf">Four paradigms. Four runtimes.</h2>
         </div>
-        <p class="text-bone/55 text-[13px] max-w-md leading-relaxed">
+        <p class="text-bone/70 text-[13.5px] max-w-md leading-relaxed">
           A scribe's ledger of mastery — each paradigm weighted against shipped
           evidence and the open research front it leads into.
         </p>
       </div>
       <div class="ticks mb-12"></div>
+
+      <!-- ===== Vital metrics · from the CV ===== -->
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-px bg-gold/15 mb-14">
+        <div class="bg-onyx p-5">
+          <div class="display text-2xl lg:text-3xl gold-leaf"><span class="count" data-count="100" data-prefix="$" data-suffix="M+">$100M+</span></div>
+          <div class="mt-2 text-[10px] tracking-[0.22em] uppercase text-bone/50">Peak TVL · Saros DLMM</div>
+        </div>
+        <div class="bg-onyx p-5">
+          <div class="display text-2xl lg:text-3xl gold-leaf"><span class="count" data-count="900" data-prefix="$" data-suffix="M+">$900M+</span></div>
+          <div class="mt-2 text-[10px] tracking-[0.22em] uppercase text-bone/50">All-time volume · DLMM</div>
+        </div>
+        <div class="bg-onyx p-5">
+          <div class="display text-2xl lg:text-3xl gold-leaf"><span class="count" data-count="4" data-prefix="$" data-suffix="M+">$4M+</span></div>
+          <div class="mt-2 text-[10px] tracking-[0.22em] uppercase text-bone/50">Raised · 10+ Starship launches</div>
+        </div>
+        <div class="bg-onyx p-5">
+          <div class="display text-2xl lg:text-3xl gold-leaf"><span class="count" data-count="2.6" data-prefix="$" data-suffix="M+">$2.6M+</span></div>
+          <div class="mt-2 text-[10px] tracking-[0.22em] uppercase text-bone/50">NFT sales volume shipped</div>
+        </div>
+        <div class="bg-onyx p-5">
+          <div class="display text-2xl lg:text-3xl gold-leaf"><span class="count" data-count="2" data-prefix="" data-suffix="+">2+</span></div>
+          <div class="mt-2 text-[10px] tracking-[0.22em] uppercase text-bone/50">Independent audits passed</div>
+        </div>
+      </div>
 
       <!-- ===== II.A · SHIPPED PARADIGMS ===== -->
       <div class="space-y-5">
@@ -602,7 +634,7 @@
                 <span class="text-bone/50">L1 Core · State-Machine Engineering</span>
               </div>
               <h3 class="display text-2xl lg:text-3xl text-bone group-hover:text-gold transition">System Integrity &amp; Consensus</h3>
-              <p class="mt-3 text-bone/65 text-[13px] leading-relaxed max-w-2xl">
+              <p class="mt-3 text-bone/75 text-[13.5px] leading-relaxed max-w-2xl">
                 Hardening protocol-level integrity at the state-machine layer. Block
                 synchronization, seal verification, and the slow arithmetic of consensus
                 stability — work that lives beyond execution, in the mechanics of agreement
@@ -658,7 +690,7 @@
                 <span class="text-bone/50">High-Performance On-chain Finance</span>
               </div>
               <h3 class="display text-2xl lg:text-3xl text-bone group-hover:text-gold transition">Liquidity Infrastructure</h3>
-              <p class="mt-3 text-bone/65 text-[13px] leading-relaxed max-w-2xl">
+              <p class="mt-3 text-bone/75 text-[13.5px] leading-relaxed max-w-2xl">
                 Designing liquidity engines where every microsecond and every lock contention
                 is a line item on the bill. Industrial-grade SDKs that abstract the math
                 without hiding it — a developer surface engineered for the next wave of
@@ -715,7 +747,7 @@
                 <span class="text-bone/50">Interoperability Fabrics</span>
               </div>
               <h3 class="display text-2xl lg:text-3xl text-bone group-hover:text-gold transition">Cross-chain Orchestration</h3>
-              <p class="mt-3 text-bone/65 text-[13px] leading-relaxed max-w-2xl">
+              <p class="mt-3 text-bone/75 text-[13.5px] leading-relaxed max-w-2xl">
                 Architecting communication layers between fundamentally different VMs.
                 Solving for atomicity and data integrity across EVM, Solana, and Move
                 runtimes — one semantic surface over execution models that disagree about
@@ -772,7 +804,7 @@
                 <span class="text-bone/50">Non-linear Architectures · Actor Model</span>
               </div>
               <h3 class="display text-2xl lg:text-3xl text-bone group-hover:text-gold transition">Async Scaling &amp; Research</h3>
-              <p class="mt-3 text-bone/65 text-[13px] leading-relaxed max-w-2xl">
+              <p class="mt-3 text-bone/75 text-[13.5px] leading-relaxed max-w-2xl">
                 Mastering the shift from synchronous EVM determinism to asynchronous
                 message-passing. Researching cell-based serialization (BOC), TL-B schemas,
                 and actor-model invariants — the scaling bottlenecks that emerge when every
@@ -818,16 +850,15 @@
               From shipped <span class="gold-leaf italic">to speculative.</span>
             </h3>
           </div>
-          <p class="text-bone/55 text-[13px] max-w-md leading-relaxed">
-            The furnace doesn't cool. Open threads in protocol design, formal logic,
-            experimental runtimes, and agent tooling — including the first thread
-            to ship.
+          <p class="text-bone/70 text-[13.5px] max-w-md leading-relaxed">
+            The furnace doesn't cool. The same ledger as the CV — every thread has a
+            public repo, from untested privacy research to a shipped MCP server.
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-gold/15">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-gold/15">
 
-          <article class="bg-onyx p-6 relative group">
+          <article class="bg-onyx p-6 relative group lab-card">
             <div class="flex items-center justify-between mb-5">
               <div class="text-[10px] tracking-[0.3em] uppercase text-bone/40">Lab · α</div>
               <svg width="22" height="22" viewBox="0 0 24 24" class="text-gold/80">
@@ -838,23 +869,26 @@
                 <circle cx="12" cy="12" r="2" fill="#C5A059"/>
               </svg>
             </div>
-            <div class="display text-xl text-bone group-hover:text-gold transition">Formal Invariants</div>
-            <div class="text-[10px] tracking-[0.28em] uppercase text-gold/70 mt-1">Protocol-Level Reasoning</div>
-            <p class="mt-4 text-bone/60 text-[12.5px] leading-relaxed">
-              Designing protocols with checked properties first — reasoning about
-              state-machine safety, liveness, and adversarial bounds before code exists.
+            <div class="display text-xl text-bone group-hover:text-gold transition">Stealth Payments on Solana</div>
+            <div class="text-[10px] tracking-[0.28em] uppercase text-gold/70 mt-1">Privacy Primitives</div>
+            <p class="mt-4 text-bone/70 text-[13px] leading-relaxed">
+              Exploring privacy-preserving payment primitives — stealth addresses and
+              unlinkable transfers on a chain built for radical transparency.
             </p>
             <div class="mt-5 flex flex-wrap gap-1.5 text-[10px] tracking-[0.18em] uppercase">
-              <span class="px-2 py-1 bg-gold/10 text-gold/90 border border-gold/20 rounded-sm">Formal Logic</span>
-              <span class="px-2 py-1 bg-gold/10 text-gold/90 border border-gold/20 rounded-sm">Invariants</span>
-              <span class="px-2 py-1 bg-gold/10 text-gold/90 border border-gold/20 rounded-sm">Safety</span>
+              <span class="px-2 py-1 bg-gold/10 text-gold/90 border border-gold/20 rounded-sm">Rust</span>
+              <span class="px-2 py-1 bg-gold/10 text-gold/90 border border-gold/20 rounded-sm">Solana</span>
+              <span class="px-2 py-1 bg-gold/10 text-gold/90 border border-gold/20 rounded-sm">Privacy</span>
             </div>
-            <div class="mt-5 flex items-center gap-2 text-[10px] tracking-[0.22em] uppercase text-bone/45">
-              <span class="live-dot"></span> Drafting
+            <div class="mt-5 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-2 text-[10px] tracking-[0.22em] uppercase text-bone/45">
+                <span class="live-dot"></span> Research · Untested
+              </div>
+              <a href="https://github.com/umbra-research/umbra-rs" target="_blank" rel="noopener" class="text-[10px] tracking-[0.22em] uppercase text-gold/80 hover:text-gold transition">umbra-rs ↗</a>
             </div>
           </article>
 
-          <article class="bg-onyx p-6 relative group">
+          <article class="bg-onyx p-6 relative group lab-card">
             <div class="flex items-center justify-between mb-5">
               <div class="text-[10px] tracking-[0.3em] uppercase text-bone/40">Lab · β</div>
               <svg width="22" height="22" viewBox="0 0 24 24" class="text-gold/80">
@@ -870,23 +904,26 @@
                 </g>
               </svg>
             </div>
-            <div class="display text-xl text-bone group-hover:text-gold transition">Cell-based Serialization</div>
-            <div class="text-[10px] tracking-[0.28em] uppercase text-gold/70 mt-1">BOC · TL-B</div>
-            <p class="mt-4 text-bone/60 text-[12.5px] leading-relaxed">
-              Mapping non-EVM state encodings end-to-end — how cells compose, where
-              ambiguity hides in the schema, what survives a malformed bag-of-cells.
+            <div class="display text-xl text-bone group-hover:text-gold transition">Modular ZK Toolkit</div>
+            <div class="text-[10px] tracking-[0.28em] uppercase text-gold/70 mt-1">Agentic RWA Economy</div>
+            <p class="mt-4 text-bone/70 text-[13px] leading-relaxed">
+              A zero-knowledge toolkit for on-chain real-world-asset use cases —
+              modular circuits for the agentic RWA economy.
             </p>
             <div class="mt-5 flex flex-wrap gap-1.5 text-[10px] tracking-[0.18em] uppercase">
-              <span class="px-2 py-1 bg-gold/10 text-gold/90 border border-gold/20 rounded-sm">BOC</span>
-              <span class="px-2 py-1 bg-gold/10 text-gold/90 border border-gold/20 rounded-sm">TL-B</span>
-              <span class="px-2 py-1 bg-gold/10 text-gold/90 border border-gold/20 rounded-sm">Schemas</span>
+              <span class="px-2 py-1 bg-gold/10 text-gold/90 border border-gold/20 rounded-sm">ZK</span>
+              <span class="px-2 py-1 bg-gold/10 text-gold/90 border border-gold/20 rounded-sm">RWA</span>
+              <span class="px-2 py-1 bg-gold/10 text-gold/90 border border-gold/20 rounded-sm">Circuits</span>
             </div>
-            <div class="mt-5 flex items-center gap-2 text-[10px] tracking-[0.22em] uppercase text-bone/45">
-              <span class="live-dot"></span> In-flight
+            <div class="mt-5 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-2 text-[10px] tracking-[0.22em] uppercase text-bone/45">
+                <span class="live-dot"></span> Research · Untested
+              </div>
+              <a href="https://github.com/umbra-research/umbra-zk" target="_blank" rel="noopener" class="text-[10px] tracking-[0.22em] uppercase text-gold/80 hover:text-gold transition">umbra-zk ↗</a>
             </div>
           </article>
 
-          <article class="bg-onyx p-6 relative group">
+          <article class="bg-onyx p-6 relative group lab-card">
             <div class="flex items-center justify-between mb-5">
               <div class="text-[10px] tracking-[0.3em] uppercase text-bone/40">Lab · γ</div>
               <svg width="22" height="22" viewBox="0 0 24 24" class="text-gold/80">
@@ -903,25 +940,59 @@
                 </g>
               </svg>
             </div>
-            <div class="display text-xl text-bone group-hover:text-gold transition">Experimental Runtimes</div>
-            <div class="text-[10px] tracking-[0.28em] uppercase text-gold/70 mt-1">Post-EVM Execution</div>
-            <p class="mt-4 text-bone/60 text-[12.5px] leading-relaxed">
-              Surveying post-EVM execution models — actor-model determinism, linear
-              resources, parallel-execution semantics. What each one buys; what it costs.
+            <div class="display text-xl text-bone group-hover:text-gold transition">Elliptic Curve VRF</div>
+            <div class="text-[10px] tracking-[0.28em] uppercase text-gold/70 mt-1">On-chain Randomness</div>
+            <p class="mt-4 text-bone/70 text-[13px] leading-relaxed">
+              A working implementation of a verifiable random function — provable,
+              tamper-evident randomness for on-chain consumers.
             </p>
             <div class="mt-5 flex flex-wrap gap-1.5 text-[10px] tracking-[0.18em] uppercase">
-              <span class="px-2 py-1 bg-gold/10 text-gold/90 border border-gold/20 rounded-sm">Actor Model</span>
-              <span class="px-2 py-1 bg-gold/10 text-gold/90 border border-gold/20 rounded-sm">Move VM</span>
-              <span class="px-2 py-1 bg-gold/10 text-gold/90 border border-gold/20 rounded-sm">Parallel Exec</span>
+              <span class="px-2 py-1 bg-gold/10 text-gold/90 border border-gold/20 rounded-sm">ECVRF</span>
+              <span class="px-2 py-1 bg-gold/10 text-gold/90 border border-gold/20 rounded-sm">Cryptography</span>
+              <span class="px-2 py-1 bg-gold/10 text-gold/90 border border-gold/20 rounded-sm">Randomness</span>
             </div>
-            <div class="mt-5 flex items-center gap-2 text-[10px] tracking-[0.22em] uppercase text-bone/45">
-              <span class="live-dot"></span> Ongoing
+            <div class="mt-5 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-2 text-[10px] tracking-[0.22em] uppercase text-bone/45">
+                <span class="live-dot"></span> Working
+              </div>
+              <a href="https://github.com/0xendale/ecvrf" target="_blank" rel="noopener" class="text-[10px] tracking-[0.22em] uppercase text-gold/80 hover:text-gold transition">ecvrf ↗</a>
             </div>
           </article>
 
-          <article class="bg-onyx p-6 relative group">
+          <article class="bg-onyx p-6 relative group lab-card">
             <div class="flex items-center justify-between mb-5">
               <div class="text-[10px] tracking-[0.3em] uppercase text-bone/40">Lab · δ</div>
+              <svg width="22" height="22" viewBox="0 0 24 24" class="text-gold/80">
+                <g fill="none" stroke="currentColor" stroke-width="0.9">
+                  <circle cx="12" cy="10" r="6"/>
+                  <circle cx="12" cy="10" r="2.5" opacity="0.7"/>
+                  <path d="M4 21 Q 12 15, 20 21" opacity="0.6"/>
+                </g>
+                <circle cx="12" cy="10" r="1" fill="#C5A059"/>
+              </svg>
+            </div>
+            <div class="display text-xl text-bone group-hover:text-gold transition">Godz Eyes Bot</div>
+            <div class="text-[10px] tracking-[0.28em] uppercase text-gold/70 mt-1">Whale Watch · Viction</div>
+            <p class="mt-4 text-bone/70 text-[13px] leading-relaxed">
+              A live Telegram bot monitoring on-chain whale trades on Viction —
+              real-time surveillance of the deep water.
+            </p>
+            <div class="mt-5 flex flex-wrap gap-1.5 text-[10px] tracking-[0.18em] uppercase">
+              <span class="px-2 py-1 bg-gold/10 text-gold/90 border border-gold/20 rounded-sm">Telegram</span>
+              <span class="px-2 py-1 bg-gold/10 text-gold/90 border border-gold/20 rounded-sm">On-chain Data</span>
+              <span class="px-2 py-1 bg-gold/10 text-gold/90 border border-gold/20 rounded-sm">Viction</span>
+            </div>
+            <div class="mt-5 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-2 text-[10px] tracking-[0.22em] uppercase text-bone/45">
+                <span class="live-dot"></span> Live
+              </div>
+              <a href="https://github.com/Godz-Eyes/godz-eyes-bot" target="_blank" rel="noopener" class="text-[10px] tracking-[0.22em] uppercase text-gold/80 hover:text-gold transition">godz-eyes-bot ↗</a>
+            </div>
+          </article>
+
+          <article class="bg-onyx p-6 relative group lab-card">
+            <div class="flex items-center justify-between mb-5">
+              <div class="text-[10px] tracking-[0.3em] uppercase text-bone/40">Lab · ε</div>
               <svg width="22" height="22" viewBox="0 0 24 24" class="text-gold/80">
                 <g fill="none" stroke="currentColor" stroke-width="0.9">
                   <rect x="3" y="9" width="6" height="6"/>
@@ -935,7 +1006,7 @@
             </div>
             <div class="display text-xl text-bone group-hover:text-gold transition">EVM Agent Toolkit</div>
             <div class="text-[10px] tracking-[0.28em] uppercase text-gold/70 mt-1">MCP Server · AI Agents</div>
-            <p class="mt-4 text-bone/60 text-[12.5px] leading-relaxed">
+            <p class="mt-4 text-bone/70 text-[13px] leading-relaxed">
               An MCP server handing AI coding agents deterministic, schema-validated EVM
               tools — security scanning, gas profiling, compiler diagnostics, transaction
               simulation. Evolved from the EVM Skills Hub library.
@@ -950,6 +1021,124 @@
                 <span class="live-dot"></span> Shipped
               </div>
               <a href="https://github.com/0xendale/evm-agent-toolkit" target="_blank" rel="noopener" class="text-[10px] tracking-[0.22em] uppercase text-gold/80 hover:text-gold transition">github ↗</a>
+            </div>
+          </article>
+
+          <a href="https://github.com/0xendale?tab=repositories" target="_blank" rel="noopener" class="bg-onyx p-6 relative group lab-card flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-5">
+              <div class="text-[10px] tracking-[0.3em] uppercase text-bone/40">Lab · ∞</div>
+              <svg width="22" height="22" viewBox="0 0 24 24" class="text-gold/80">
+                <g fill="none" stroke="currentColor" stroke-width="0.9">
+                  <circle cx="12" cy="12" r="9" opacity="0.45"/>
+                  <path d="M7 12 C 7 9, 11 9, 12 12 C 13 15, 17 15, 17 12 C 17 9, 13 9, 12 12 C 11 15, 7 15, 7 12 Z"/>
+                </g>
+              </svg>
+            </div>
+            <div>
+              <div class="display text-xl text-bone group-hover:text-gold transition">More in the furnace</div>
+              <div class="text-[10px] tracking-[0.28em] uppercase text-gold/70 mt-1">Full Repository Ledger</div>
+              <p class="mt-4 text-bone/70 text-[13px] leading-relaxed">
+                Everything else lives in the open — browse the full ledger of public
+                repositories on GitHub.
+              </p>
+            </div>
+            <div class="mt-5 flex items-center gap-2 text-[10px] tracking-[0.22em] uppercase text-gold/80 group-hover:text-gold transition">
+              github.com/0xendale ↗
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- ===== II.C · SERVICE RECORDS · CAREER LEDGER ===== -->
+      <div class="mt-24">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+          <div>
+            <div class="eyebrow mb-4"><span class="num">II.C</span>Service Records · Career Ledger</div>
+            <h3 class="display text-[clamp(1.8rem,3.6vw,2.6rem)] text-bone leading-[1.05]">
+              Where the work <span class="gold-leaf italic">was shipped.</span>
+            </h3>
+          </div>
+          <p class="text-bone/70 text-[13.5px] max-w-md leading-relaxed">
+            The dated record behind the paradigms — roles, protocols, and the numbers
+            they left behind. Audited where it counts.
+          </p>
+        </div>
+        <div class="ticks mb-10"></div>
+
+        <div class="space-y-5">
+
+          <!-- ENTRY · 001 — NINETY EIGHT -->
+          <article class="project glass rounded-sm relative corner overflow-hidden">
+            <div class="grid lg:grid-cols-12 gap-0">
+              <div class="lg:col-span-3 border-b lg:border-b-0 lg:border-r hair p-6 flex flex-col justify-between gap-6">
+                <div>
+                  <div class="text-[10px] tracking-[0.3em] uppercase text-bone/40">Entry · 001</div>
+                  <div class="mt-3 text-gold text-[13px]">Sep 2022 — Present</div>
+                  <div class="mt-1 text-bone/50 text-[11px]">Protocol Engineer → Senior · Dec 2025</div>
+                </div>
+                <div class="inline-flex items-center gap-2 text-[10px] tracking-[0.2em] uppercase text-gold border border-gold/30 bg-gold/10 rounded-sm px-3 py-2 self-start">
+                  🏆 Best Performance of the Year · 2024
+                </div>
+              </div>
+              <div class="lg:col-span-9 p-7">
+                <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                  <h4 class="display text-2xl text-bone">Senior Protocol Engineer</h4>
+                  <span class="text-gold text-[13px]">· Ninety Eight (Coin98)</span>
+                  <a href="https://ne.xyz/" target="_blank" rel="noopener" class="text-[11px] text-bone/45 hover:text-gold transition">ne.xyz ↗</a>
+                </div>
+                <ul class="mt-5 space-y-3 text-[13.5px] text-bone/75 leading-relaxed">
+                  <li class="flex gap-3"><span class="text-gold shrink-0">◆</span><span><b class="text-bone font-medium">Viction Chain Core</b> — diagnosed consensus-level bugs and ported hard-fork EVM logic during the migration to vic-geth, targeting network stability under load. <a href="https://viction.xyz/" target="_blank" rel="noopener" class="text-gold/70 hover:text-gold transition">viction.xyz ↗</a></span></li>
+                  <li class="flex gap-3"><span class="text-gold shrink-0">◆</span><span><b class="text-bone font-medium">Starship</b> — cross-chain launchpad contracts across EVM, Solana, and Aptos; <span class="text-gold">10+</span> launches raising <span class="text-gold">$4M+</span>, with <span class="text-gold">$2M+</span> secondary volume. <a href="https://github.com/cybring-xyz/audit-reports/blob/main/Starship-audit-report.pdf" target="_blank" rel="noopener" class="text-gold/70 hover:text-gold transition">audit report ↗</a></span></li>
+                  <li class="flex gap-3"><span class="text-gold shrink-0">◇</span><span><b class="text-bone font-medium">Defusion</b> — liquid staking and derivative contracts for capital efficiency on Viction. <a href="https://www.defusion.xyz/" target="_blank" rel="noopener" class="text-gold/70 hover:text-gold transition">defusion.xyz ↗</a></span></li>
+                  <li class="flex gap-3"><span class="text-gold shrink-0">◇</span><span><b class="text-bone font-medium">Eternals</b> — on-chain item management and minting for a Web3 game; collections traded <span class="text-gold">$600K+</span>. <a href="https://www.eternals.game/" target="_blank" rel="noopener" class="text-gold/70 hover:text-gold transition">eternals.game ↗</a></span></li>
+                  <li class="flex gap-3"><span class="text-gold shrink-0">◇</span><span><b class="text-bone font-medium">TON Network</b> — ported aggregator logic to FunC for SuperLink and Coin98 Vault, managing the asynchronous actor model.</span></li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- ENTRY · 010 — SAROS FINANCE -->
+          <article class="project glass rounded-sm relative corner overflow-hidden">
+            <div class="grid lg:grid-cols-12 gap-0">
+              <div class="lg:col-span-3 border-b lg:border-b-0 lg:border-r hair p-6">
+                <div class="text-[10px] tracking-[0.3em] uppercase text-bone/40">Entry · 010</div>
+                <div class="mt-3 text-gold text-[13px]">Sep 2024 — Sep 2025</div>
+                <div class="mt-1 text-bone/50 text-[11px]">Parallel engagement · Solana</div>
+              </div>
+              <div class="lg:col-span-9 p-7">
+                <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                  <h4 class="display text-2xl text-bone">Protocol Engineer</h4>
+                  <span class="text-gold text-[13px]">· Saros Finance</span>
+                  <a href="https://saros.xyz/pools" target="_blank" rel="noopener" class="text-[11px] text-bone/45 hover:text-gold transition">saros.xyz ↗</a>
+                </div>
+                <ul class="mt-5 space-y-3 text-[13.5px] text-bone/75 leading-relaxed">
+                  <li class="flex gap-3"><span class="text-gold shrink-0">◆</span><span><b class="text-bone font-medium">Saros DLMM</b> — core protocol upgrades for the liquidity book engine. Independently audited: <a href="https://github.com/cybring-xyz/audit-reports/blob/main/Saros-Liquidity-Book-audit-report.pdf" target="_blank" rel="noopener" class="text-gold/70 hover:text-gold transition">core ↗</a> · <a href="https://github.com/cybring-xyz/audit-reports/blob/main/Saros-DLMM-Reward-final-audit-report.pdf" target="_blank" rel="noopener" class="text-gold/70 hover:text-gold transition">rewards ↗</a></span></li>
+                  <li class="flex gap-3"><span class="text-gold shrink-0">◆</span><span><b class="text-bone font-medium">Rust SDK</b> — built and maintained the SDK third-party teams use to integrate with the protocol.</span></li>
+                  <li class="flex gap-3"><span class="text-gold shrink-0">◇</span><span>Protocol reached <span class="text-gold">$100M+</span> peak TVL and <span class="text-gold">$900M+</span> all-time trading volume.</span></li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- ENTRY · 011 — UNIONTEK -->
+          <article class="project glass rounded-sm relative corner overflow-hidden">
+            <div class="grid lg:grid-cols-12 gap-0">
+              <div class="lg:col-span-3 border-b lg:border-b-0 lg:border-r hair p-6">
+                <div class="text-[10px] tracking-[0.3em] uppercase text-bone/40">Entry · 011</div>
+                <div class="mt-3 text-gold text-[13px]">Nov 2021 — 2022</div>
+                <div class="mt-1 text-bone/50 text-[11px]">First transmutation</div>
+              </div>
+              <div class="lg:col-span-9 p-7">
+                <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                  <h4 class="display text-2xl text-bone">Backend / Blockchain Developer</h4>
+                  <span class="text-gold text-[13px]">· Uniontek Training Technology JSC</span>
+                </div>
+                <ul class="mt-5 space-y-3 text-[13.5px] text-bone/75 leading-relaxed">
+                  <li class="flex gap-3"><span class="text-gold shrink-0">◆</span><span><b class="text-bone font-medium">DApp Architecture</b> — designed and shipped end-to-end Web3 solutions for GameFi and NFT platforms, including a custom marketplace and minting engine.</span></li>
+                  <li class="flex gap-3"><span class="text-gold shrink-0">◇</span><span><b class="text-bone font-medium">Smart Contract Engineering</b> — Solidity contracts for tokens and staking protocols; optimized the distribution system's logic.</span></li>
+                </ul>
+              </div>
             </div>
           </article>
 
@@ -970,7 +1159,7 @@
             Architectural mastery <span class="gold-leaf italic">over language syntax.</span>
           </h2>
         </div>
-        <p class="text-bone/55 text-[13px] max-w-md leading-relaxed">
+        <p class="text-bone/70 text-[13.5px] max-w-md leading-relaxed">
           Languages are tools. The real surface is the runtime — its execution model,
           its consensus, its memory and account semantics. The blueprint lives one layer down.
         </p>
@@ -987,7 +1176,7 @@
           </div>
           <div class="mt-5 display text-2xl text-bone group-hover:text-gold transition">Sealevel</div>
           <div class="text-[11px] tracking-[0.22em] uppercase text-gold/70 mt-1">Solana · Parallel</div>
-          <p class="mt-4 text-bone/55 text-[12px] leading-relaxed">
+          <p class="mt-4 text-bone/70 text-[12px] leading-relaxed">
             Account-isolated parallel execution. Liquidity-grade infra where lock contention
             is the cost — Saros DLMM was built against this model.
           </p>
@@ -1000,7 +1189,7 @@
           </div>
           <div class="mt-5 display text-2xl text-bone group-hover:text-gold transition">EVM</div>
           <div class="text-[11px] tracking-[0.22em] uppercase text-gold/70 mt-1">Viction · Ethereum</div>
-          <p class="mt-4 text-bone/55 text-[12px] leading-relaxed">
+          <p class="mt-4 text-bone/70 text-[12px] leading-relaxed">
             Sequential, world-state execution. Block synchronization, seal verification,
             and consensus internals — the substrate of Viction Chain Core.
           </p>
@@ -1013,7 +1202,7 @@
           </div>
           <div class="mt-5 display text-2xl text-bone group-hover:text-gold transition">TON Actor Model</div>
           <div class="text-[11px] tracking-[0.22em] uppercase text-gold/70 mt-1">Async · Message-passing</div>
-          <p class="mt-4 text-bone/55 text-[12px] leading-relaxed">
+          <p class="mt-4 text-bone/70 text-[12px] leading-relaxed">
             Every contract is an actor with its own mailbox. Designing aggregator logic
             here means treating message ordering as a first-class invariant.
           </p>
@@ -1026,7 +1215,7 @@
           </div>
           <div class="mt-5 display text-2xl text-bone group-hover:text-gold transition">Move VM</div>
           <div class="text-[11px] tracking-[0.22em] uppercase text-gold/70 mt-1">Aptos · Resource-typed</div>
-          <p class="mt-4 text-bone/55 text-[12px] leading-relaxed">
+          <p class="mt-4 text-bone/70 text-[12px] leading-relaxed">
             Resources are linear; assets can't be copied or implicitly dropped. The type system
             is the audit — a different shape of safety than EVM contracts.
           </p>
@@ -1050,13 +1239,14 @@
               <div class="text-[10px] tracking-[0.3em] uppercase text-bone/35">utf-8 · ro</div>
             </div>
 
-            <div class="px-6 py-6 text-[12.5px] leading-[1.7] text-bone/85">
+            <div class="px-6 py-6 text-[13px] leading-[1.7] text-bone/85">
 <pre class="whitespace-pre-wrap"><span class="text-gold">endale@thoth</span><span class="text-bone/50">:~/blueprint$</span> cat manifest.toml
 
 <span class="text-bone/40">[meta]</span>
   scribe   = <span class="text-gold/80">"Endale"</span>
   role     = <span class="text-gold/80">"Senior Protocol Engineer // Multichain Infrastructure"</span>
   thesis   = <span class="text-gold/80">"Architectural mastery over language syntax."</span>
+  award    = <span class="text-gold/80">"Best Performance of the Year · Ninety Eight · 2024"</span>
 
 <span class="text-gold">[runtimes]</span>
   sealevel = <span class="text-gold/80">"Solana · parallel, account-isolated execution"</span>
@@ -1093,7 +1283,7 @@
               <div class="flex-1">
                 <div class="display text-xl text-bone">System Integrity</div>
                 <div class="text-[10px] tracking-[0.28em] uppercase text-gold/70 mt-1">Consensus · Sync · Seal Verification</div>
-                <p class="mt-3 text-bone/60 text-[12.5px] leading-relaxed">
+                <p class="mt-3 text-bone/70 text-[13px] leading-relaxed">
                   Consensus research, block synchronization, and seal verification logic —
                   the layer Viction Chain Core demands. The work where every bit of state
                   has to be earned, not assumed.
@@ -1108,7 +1298,7 @@
               <div class="flex-1">
                 <div class="display text-xl text-bone">Infrastructure Scaling</div>
                 <div class="text-[10px] tracking-[0.28em] uppercase text-gold/70 mt-1">Liquidity · SDKs · High TVL</div>
-                <p class="mt-3 text-bone/60 text-[12.5px] leading-relaxed">
+                <p class="mt-3 text-bone/70 text-[13px] leading-relaxed">
                   Building Rust SDKs for high-TVL environments — the developer surface for
                   Saros DLMM and adjacent liquidity protocols. Where ergonomics meet
                   hot-path performance.
@@ -1123,7 +1313,7 @@
               <div class="flex-1">
                 <div class="display text-xl text-bone">Interoperability</div>
                 <div class="text-[10px] tracking-[0.28em] uppercase text-gold/70 mt-1">Cross-chain · Heterogeneous VMs</div>
-                <p class="mt-3 text-bone/60 text-[12.5px] leading-relaxed">
+                <p class="mt-3 text-bone/70 text-[13px] leading-relaxed">
                   Designing cross-chain smart contracts that bridge heterogeneous
                   ecosystems — Starship across EVM, Solana, and Aptos. One semantic surface
                   over four execution models.
@@ -1150,7 +1340,7 @@
             If your protocol needs <span class="gold-leaf italic">transmuting —</span><br/>
             the furnace is open.
           </h2>
-          <p class="mt-8 text-bone/60 text-[13px] max-w-xl leading-relaxed">
+          <p class="mt-8 text-bone/70 text-[13.5px] max-w-xl leading-relaxed">
             Reach out for protocol-level engagements: core upgrades, liquidity infrastructure,
             cross-chain interoperability, or developer-centric SDKs across Rust, Solidity,
             FunC and Move.
@@ -1170,30 +1360,38 @@
               <div class="flex-1">
                 <div class="eyebrow mb-2">Recognition · 2024</div>
                 <div class="text-bone text-[14px] leading-snug">
-                  Recognized for technical contributions to the ecosystem at
-                  <span class="gold-leaf font-medium">Ninety Eight</span>.
+                  <span class="gold-leaf font-medium">Best Performance of the Year</span> —
+                  awarded at <span class="gold-leaf font-medium">Ninety Eight</span>.
                 </div>
-                <div class="text-bone/45 text-[11px] mt-2">Awarded for shipped protocol work across the Ninety Eight portfolio.</div>
+                <div class="text-bone/45 text-[11px] mt-2">For shipped protocol work across the Ninety Eight portfolio — Viction, Starship, Defusion, Eternals.</div>
               </div>
             </div>
           </div>
 
-          <div class="mt-10 grid sm:grid-cols-2 gap-px bg-gold/15 max-w-2xl">
-            <a href="https://github.com/0xendale" target="_blank" rel="noopener" class="bg-onyx p-5 hover:bg-onyx-700 transition group block">
-              <div class="text-[10px] tracking-[0.3em] uppercase text-bone/40">GitHub</div>
-              <div class="mt-2 text-gold group-hover:text-gold-300 text-[14px]">github.com/0xendale</div>
+          <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gold/15 max-w-2xl">
+            <a href="mailto:endadinh@gmail.com" class="bg-onyx p-5 hover:bg-onyx-700 transition group block">
+              <div class="text-[10px] tracking-[0.3em] uppercase text-bone/40">Email</div>
+              <div class="mt-2 text-gold group-hover:text-gold-300 text-[13px] break-all">endadinh@gmail.com</div>
+            </a>
+            <a href="https://www.linkedin.com/in/endadinh/" target="_blank" rel="noopener" class="bg-onyx p-5 hover:bg-onyx-700 transition group block">
+              <div class="text-[10px] tracking-[0.3em] uppercase text-bone/40">LinkedIn</div>
+              <div class="mt-2 text-gold group-hover:text-gold-300 text-[13px]">in/endadinh</div>
             </a>
             <a href="https://github.com/0xendale" target="_blank" rel="noopener" class="bg-onyx p-5 hover:bg-onyx-700 transition group block">
-              <div class="text-[10px] tracking-[0.3em] uppercase text-bone/40">Handle</div>
-              <div class="mt-2 text-gold group-hover:text-gold-300 text-[14px]">0xendale</div>
+              <div class="text-[10px] tracking-[0.3em] uppercase text-bone/40">GitHub · Personal</div>
+              <div class="mt-2 text-gold group-hover:text-gold-300 text-[13px]">0xendale</div>
+            </a>
+            <a href="https://github.com/endale98" target="_blank" rel="noopener" class="bg-onyx p-5 hover:bg-onyx-700 transition group block">
+              <div class="text-[10px] tracking-[0.3em] uppercase text-bone/40">GitHub · Work</div>
+              <div class="mt-2 text-gold group-hover:text-gold-300 text-[13px]">endale98</div>
             </a>
             <div class="bg-onyx p-5">
-              <div class="text-[10px] tracking-[0.3em] uppercase text-bone/40">Role</div>
-              <div class="mt-2 text-gold text-[14px]">Senior Protocol Engineer</div>
+              <div class="text-[10px] tracking-[0.3em] uppercase text-bone/40">Location</div>
+              <div class="mt-2 text-gold text-[13px]">HCMC · Vietnam</div>
             </div>
             <div class="bg-onyx p-5">
-              <div class="text-[10px] tracking-[0.3em] uppercase text-bone/40">Focus</div>
-              <div class="mt-2 text-gold text-[14px]">Multichain Infrastructure</div>
+              <div class="text-[10px] tracking-[0.3em] uppercase text-bone/40">Role</div>
+              <div class="mt-2 text-gold text-[13px]">Senior Protocol Engineer</div>
             </div>
           </div>
         </div>
@@ -1390,6 +1588,38 @@
             start: 'top 85%',
             toggleActions: 'play none none reverse'
           }
+        });
+      });
+
+      // Reveal lab cards
+      gsap.utils.toArray('.lab-card').forEach((card, i) => {
+        gsap.from(card, {
+          y: 30,
+          opacity: 0,
+          duration: 0.8,
+          delay: (i % 3) * 0.08,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 88%',
+            toggleActions: 'play none none reverse'
+          }
+        });
+      });
+
+      // Count-up metrics
+      gsap.utils.toArray('.count').forEach((el) => {
+        const target = parseFloat(el.dataset.count);
+        const prefix = el.dataset.prefix || '';
+        const suffix = el.dataset.suffix || '';
+        const decimals = el.dataset.count.includes('.') ? 1 : 0;
+        const state = { v: 0 };
+        gsap.to(state, {
+          v: target,
+          duration: 1.6,
+          ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+          onUpdate: () => { el.textContent = prefix + state.v.toFixed(decimals) + suffix; }
         });
       });
 
