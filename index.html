@@ -40,6 +40,7 @@
 
     html, body { background: var(--onyx); color: #e6e1d7; }
     html { scroll-behavior: smooth; }
+    section[id] { scroll-margin-top: 76px; }
     body {
       font-family: 'JetBrains Mono', monospace;
       font-feature-settings: "ss01", "ss02";
@@ -234,6 +235,19 @@
     /* Hide focus rings only on mouse */
     :focus:not(:focus-visible) { outline: none; }
 
+    /* Sigil overlays scale with the portrait instead of staying fixed-size */
+    #sigil svg { width: clamp(84px, 26vw, 170px); height: auto; }
+    #alch-sigil svg { width: clamp(76px, 23vw, 150px); height: auto; }
+
+    /* Mobile: drop the film grain (clarity + GPU cost) and soften huge blurs */
+    @media (max-width: 640px) {
+      body::before { display: none; }
+      .glass, .glass-strong {
+        backdrop-filter: blur(8px) saturate(130%);
+        -webkit-backdrop-filter: blur(8px) saturate(130%);
+      }
+    }
+
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
@@ -246,7 +260,7 @@
 <body class="bg-onyx text-bone min-h-screen">
 
   <!-- ==================== TOP NAV ==================== -->
-  <header class="fixed top-0 inset-x-0 z-50">
+  <header class="fixed top-0 inset-x-0 z-50 bg-onyx/85" style="backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
     <div class="mx-auto max-w-7xl px-6 lg:px-10 h-16 flex items-center justify-between">
       <a href="#top" class="flex items-center gap-3 group">
         <!-- Mark: hexagram inside circle -->
@@ -271,9 +285,20 @@
         <span class="live-dot"></span>
         github
       </a>
-      <button class="md:hidden text-gold text-xs tracking-[0.3em]">MENU</button>
+      <button id="menu-btn" class="md:hidden text-gold text-xs tracking-[0.3em] px-2 py-2 -mr-2" aria-expanded="false" aria-controls="mobile-menu">MENU</button>
     </div>
     <div class="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
+    <div id="mobile-menu" class="md:hidden hidden bg-onyx/95 border-b hair" style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+      <nav class="px-6 py-6 flex flex-col gap-5 text-[12px] tracking-[0.28em] uppercase text-bone/75">
+        <a href="#alchemy"       class="hover:text-gold transition">I · Alchemy</a>
+        <a href="#transmutation" class="hover:text-gold transition">II · Logs</a>
+        <a href="#archive"       class="hover:text-gold transition">III · Blueprint</a>
+        <a href="#scribe"        class="hover:text-gold transition">IV · Footnote</a>
+        <a href="https://github.com/0xendale" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-gold">
+          <span class="live-dot"></span> GitHub · 0xendale
+        </a>
+      </nav>
+    </div>
   </header>
 
   <!-- ==================== HERO ==================== -->
@@ -281,7 +306,7 @@
     <!-- Mouse spotlight overlay on the hero -->
     <div id="spotlight"></div>
 
-    <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-10 pt-32 pb-20 min-h-screen grid lg:grid-cols-12 gap-10 items-center">
+    <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-10 pt-24 sm:pt-32 pb-24 min-h-screen grid lg:grid-cols-12 gap-10 items-center">
 
       <!-- LEFT: Identity -->
       <div class="lg:col-span-5 relative">
@@ -382,25 +407,25 @@
           </div>
 
           <!-- HUD labels around portrait -->
-          <div class="absolute left-0 top-[30%] text-[10px] tracking-[0.32em] uppercase text-gold/70">
+          <div class="hidden sm:block absolute left-0 top-[30%] text-[10px] tracking-[0.32em] uppercase text-gold/70">
             <div class="flex items-center gap-3">
               <span class="inline-block w-6 h-px bg-gold/60"></span>
               <span>Sigil · Active</span>
             </div>
           </div>
-          <div class="absolute right-0 top-[18%] text-[10px] tracking-[0.32em] uppercase text-gold/70">
+          <div class="hidden sm:block absolute right-0 top-[18%] text-[10px] tracking-[0.32em] uppercase text-gold/70">
             <div class="flex items-center gap-3">
               <span>Lat&nbsp;21.0285° N</span>
               <span class="inline-block w-6 h-px bg-gold/60"></span>
             </div>
           </div>
-          <div class="absolute right-[8%] bottom-[14%] text-[10px] tracking-[0.32em] uppercase text-gold/70">
+          <div class="hidden sm:block absolute right-[8%] bottom-[14%] text-[10px] tracking-[0.32em] uppercase text-gold/70">
             <div class="flex items-center gap-3">
               <span>Crescent · II</span>
               <span class="inline-block w-6 h-px bg-gold/60"></span>
             </div>
           </div>
-          <div class="absolute left-[6%] bottom-[10%] text-[10px] tracking-[0.32em] uppercase text-bone/40">
+          <div class="hidden sm:block absolute left-[6%] bottom-[10%] text-[10px] tracking-[0.32em] uppercase text-bone/40">
             Plate&nbsp;I · Codex&nbsp;Thōth
           </div>
         </div>
@@ -600,7 +625,7 @@
           <div class="display text-2xl lg:text-3xl gold-leaf"><span class="count" data-count="2.6" data-prefix="$" data-suffix="M+">$2.6M+</span></div>
           <div class="mt-2 text-[10px] tracking-[0.22em] uppercase text-bone/50">NFT sales volume shipped</div>
         </div>
-        <div class="bg-onyx p-5">
+        <div class="bg-onyx p-5 col-span-2 md:col-span-1">
           <div class="display text-2xl lg:text-3xl gold-leaf"><span class="count" data-count="2" data-prefix="" data-suffix="+">2+</span></div>
           <div class="mt-2 text-[10px] tracking-[0.22em] uppercase text-bone/50">Independent audits passed</div>
         </div>
@@ -1225,7 +1250,7 @@
       <div class="grid lg:grid-cols-12 gap-8">
 
         <!-- Terminal: blueprint manifest -->
-        <div class="lg:col-span-7">
+        <div class="lg:col-span-7 min-w-0">
           <div class="term rounded-sm overflow-hidden">
             <div class="term-bar px-4 py-3 flex items-center justify-between">
               <div class="flex items-center gap-2">
@@ -1239,8 +1264,8 @@
               <div class="text-[10px] tracking-[0.3em] uppercase text-bone/35">utf-8 · ro</div>
             </div>
 
-            <div class="px-6 py-6 text-[13px] leading-[1.7] text-bone/85">
-<pre class="whitespace-pre-wrap"><span class="text-gold">endale@thoth</span><span class="text-bone/50">:~/blueprint$</span> cat manifest.toml
+            <div class="px-4 sm:px-6 py-6 text-[11px] sm:text-[13px] leading-[1.7] text-bone/85 overflow-x-auto no-scrollbar">
+<pre class="whitespace-pre sm:whitespace-pre-wrap"><span class="text-gold">endale@thoth</span><span class="text-bone/50">:~/blueprint$</span> cat manifest.toml
 
 <span class="text-bone/40">[meta]</span>
   scribe   = <span class="text-gold/80">"Endale"</span>
@@ -1273,7 +1298,7 @@
         </div>
 
         <!-- Core disciplines -->
-        <aside class="lg:col-span-5 space-y-4 self-start">
+        <aside class="lg:col-span-5 space-y-4 self-start min-w-0">
 
           <div class="eyebrow mb-2"><span class="num">III.A</span>Core Disciplines</div>
 
@@ -1428,13 +1453,13 @@
   <!-- ==================== FOOTER ==================== -->
   <footer class="relative border-t hair">
     <div class="mx-auto max-w-7xl px-6 lg:px-10 py-10 grid md:grid-cols-3 gap-6 items-center">
-      <div class="text-[11px] tracking-[0.32em] uppercase text-bone/45">
+      <div class="text-center md:text-left text-[11px] tracking-[0.32em] uppercase text-bone/45">
         © Endale · Codex Thōth
       </div>
       <div class="text-center text-[11px] tracking-[0.32em] uppercase text-gold/70">
         Transmuting · Multichain
       </div>
-      <div class="text-right text-[11px] tracking-[0.32em] uppercase text-bone/45">
+      <div class="text-center md:text-right text-[11px] tracking-[0.32em] uppercase text-bone/45">
         Hand-scribed in JetBrains Mono
       </div>
     </div>
@@ -1442,6 +1467,20 @@
 
   <!-- ==================== SCRIPTS ==================== -->
   <script>
+    // -------- Mobile menu --------
+    (function () {
+      const btn = document.getElementById('menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      if (!btn || !menu) return;
+      function setOpen(open) {
+        menu.classList.toggle('hidden', !open);
+        btn.setAttribute('aria-expanded', String(open));
+        btn.textContent = open ? 'CLOSE' : 'MENU';
+      }
+      btn.addEventListener('click', () => setOpen(menu.classList.contains('hidden')));
+      menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+    })();
+
     // -------- Ticks ring (decorative) --------
     (function () {
       const ring = document.getElementById('ticks-ring');
